@@ -22,12 +22,13 @@ class RestaurantRV(private val restaurantList: MutableList<Restaurant>):Recycler
                 mealPrice.text = "Price: $"+item.price
                 mealNuts.text = "Nuts: "+item.nuts
                 mealVegetarian.text = "Vegetarian: "+item.vegetarian
-                mealSpiciness.text = "Spiciness: "+item.spiciness
 
                 Glide.with(itemView.context)
                     .load(item.image)
                     .placeholder(R.drawable.loading_image)
                     .into(mealImage)
+
+                mealSpiciness.rating = item.spiciness.toFloat()
 
             }
         }
